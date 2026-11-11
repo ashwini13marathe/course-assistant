@@ -1,0 +1,6 @@
+HW3 hints
+
+- think about what has to stay true about every node after you delete something
+- for the two-children case, find the smallest key in the right subtree and use it to replace the deleted key
+- then delete that smallest key from the right subtree; it has at most one child, so it's an easy case
+- keep the size counter right: only change it when a key was really added or removed

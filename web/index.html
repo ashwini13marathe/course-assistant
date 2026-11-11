@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS 201 Course Assistant</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232547D0'/%3E%3Cpath d='M9 22V10h7a4 4 0 0 1 0 8H9' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="app" class="app">
+
+  <!-- Settings ------------------------------------------------------------ -->
+  <aside id="sidebar" class="sidebar" aria-label="Settings">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">201</span>
+      <div class="brand-text"><strong>Course Assistant</strong><span>CS 201: Data Structures</span></div>
+    </div>
+
+    <details id="sec-identity" class="sec">
+      <summary><span>Identity</span><span class="sum" id="sum-identity"></span></summary>
+      <div class="sec-body">
+        <div class="seg" role="radiogroup" aria-label="Role">
+          <button type="button" role="radio" data-role="student">Student</button>
+          <button type="button" role="radio" data-role="professor">Professor</button>
+        </div>
+        <label class="field" id="username-field">Username
+          <input id="username" autocomplete="off" spellcheck="false">
+          <span class="field-err" id="username-err"></span>
+        </label>
+        <p class="hint">This picker stands in for login. The role comes from the app, never from the chat.</p>
+      </div>
+    </details>
+
+    <details id="sec-model" class="sec">
+      <summary><span>Model</span><span class="sum" id="sum-model"></span></summary>
+      <div class="sec-body">
+        <label class="field">Provider <select id="provider"></select></label>
+        <label class="field">Model <input id="model" autocomplete="off" spellcheck="false"></label>
+        <label class="field">API key <input id="api-key" type="password" autocomplete="off"></label>
+        <p class="hint" id="key-hint"></p>
+      </div>
+    </details>
+
+    <details id="sec-tracing" class="sec">
+      <summary><span>Tracing</span><span class="sum" id="sum-tracing"></span></summary>
+      <div class="sec-body">
+        <label class="field">Langfuse public key <input id="lf-public" autocomplete="off" spellcheck="false"></label>
+        <label class="field">Langfuse secret key <input id="lf-secret" type="password" autocomplete="off"></label>
+        <label class="field">Host <select id="lf-host"></select></label>
+        <label class="field" id="lf-custom-field" hidden>Custom host URL <input id="lf-custom" spellcheck="false"></label>
+        <p class="status-line" id="tracing-status"></p>
+      </div>
+    </details>
+
+    <section class="sec demo" aria-label="Demo controls">
+      <div class="demo-time"><span id="demo-time-label">Now</span><strong id="demo-time">…</strong></div>
+      <div class="field">Guardrails
+        <div class="seg small" role="radiogroup" aria-label="Guardrails">
+          <button type="button" role="radio" data-enforce="1">Middleware</button>
+          <button type="button" role="radio" data-enforce="0">Prompt only</button>
+        </div>
+      </div>
+      <button type="button" class="btn" id="new-conversation">New conversation</button>
+      <button type="button" class="btn" id="reset-open">Reset demo…</button>
+      <div class="reset-box" id="reset-box" hidden>
+        <label class="field">Start from <select id="preset"></select></label>
+        <p class="hint">Wipes every change made during the demo, for everyone.</p>
+        <div class="row-btns">
+          <button type="button" class="btn danger" id="reset-go">Reset demo</button>
+          <button type="button" class="btn ghost" id="reset-cancel">Cancel</button>
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <!-- Files --------------------------------------------------------------- -->
+  <section id="files" class="files" aria-label="Files">
+    <div class="files-head">Files</div>
+    <div id="tree" class="tree"></div>
+  </section>
+
+  <!-- Chat ---------------------------------------------------------------- -->
+  <main id="chat" class="chat">
+    <header class="chat-head">
+      <button type="button" class="icon-btn" id="toggle-sidebar" aria-label="Show or hide settings" title="Settings"></button>
+      <button type="button" class="icon-btn" id="toggle-files" aria-label="Show or hide files" title="Files"></button>
+      <div class="who"><strong id="who">…</strong><span id="who-sub"></span></div>
+    </header>
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div class="composer-wrap">
+      <div id="banner" class="banner" hidden></div>
+      <form id="composer" class="composer">
+        <div id="chips" class="chips"></div>
+        <div class="composer-row">
+          <button type="button" class="icon-btn" id="attach" aria-label="Attach files" title="Attach files"></button>
+          <textarea id="input" rows="1" placeholder="Message the course assistant"></textarea>
+          <button type="submit" class="send" id="send" aria-label="Send"></button>
+        </div>
+        <input type="file" id="file-input" multiple hidden>
+      </form>
+    </div>
+    <div class="drop" id="drop" hidden>Drop files to attach them</div>
+  </main>
+
+  <!-- File viewer ---------------------------------------------------------- -->
+  <aside id="drawer" class="drawer" aria-label="File viewer" hidden>
+    <header class="drawer-head">
+      <div class="drawer-path" id="drawer-path"></div>
+      <button type="button" class="icon-btn" id="drawer-close" aria-label="Close"></button>
+    </header>
+    <div class="drawer-meta" id="drawer-meta"></div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+[project]
+name = "course-assistant"
+version = "0.1.0"
+description = "Build Your Own Claude Code: a course assistant agent harness (DevFest workshop)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "starlette>=0.40",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",
+    "langchain>=1.4.6",
+    "langgraph>=1.0",
+    "langchain-anthropic>=1.0",
+    "langchain-openai>=1.0",
+    "langchain-google-genai>=3.0",
+    "langfuse>=5",
+    "pyyaml>=6",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

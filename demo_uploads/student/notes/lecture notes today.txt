@@ -1,0 +1,7 @@
+avl rotations - lecture today
+* right rotation fixes left-left case. left child becomes the new root of the subtree
+* left rotation = mirror, fixes right-right
+* left-right case: rotate left on the left child first, then right on the node
+* right-left: mirror of that
+* after insert walk back up and update heights, rebalance the first node that's off by 2
+* only ONE rebalance needed after an insert (deletes can need more)

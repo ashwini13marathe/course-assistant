@@ -1,0 +1,25 @@
+{
+  "assignment_id": "hw3",
+  "title": "Binary search trees",
+  "due": "{{D+2@23:59|isodt}}",
+  "due_quote": "{{D+2|weekday}}",
+  "overview": "Implement a binary search tree with insert, contains, delete (all three cases), inorder, height and an O(1) length.",
+  "professor_notes": "This is a pretty tough one, so keep time to work on it. Hints will be uploaded tonight.",
+  "hints_status": "coming",
+  "review_checklist": "- [ ] `insert` adds new keys and ignores duplicates (size unchanged).\n- [ ] `contains` returns True/False and works on an empty tree.\n- [ ] `delete` handles a leaf, a node with one child, and a node with two children, including the root in each case.\n- [ ] `delete` keeps the BST property everywhere after a two-children delete, with no duplicate keys left behind.\n- [ ] `delete` of a missing key raises `KeyError` and leaves the size unchanged.\n- [ ] `inorder` returns the keys in sorted order.\n- [ ] `height` is -1 for an empty tree and 0 for a single node.\n- [ ] `len(tree)` is O(1) and stays correct after inserts, duplicate inserts and deletes.\n- [ ] Operations other than `inorder` and `height` are O(h).\n- [ ] Keys are stored in nodes, not in a Python list or dict.",
+  "files": [
+    {
+      "upload": "CS201 HW3 FINAL (2).md",
+      "kind": "handout"
+    },
+    {
+      "upload": "bst (1).py",
+      "kind": "starter"
+    },
+    {
+      "upload": "sol_hw3 v2.py",
+      "kind": "solution"
+    }
+  ],
+  "professor_message": "This is HW3 with its starter code and solution. Deadline is {{D+2|weekday}}. Tell students it's a pretty tough one so keep time for it. Will upload the hints later tonight."
+}

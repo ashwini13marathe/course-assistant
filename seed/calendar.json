@@ -1,0 +1,14 @@
+[
+  {"id": "mon-work", "title": "Work shift", "start": "{{D-1@16:00|isodt}}", "end": "{{D-1@21:00|isodt}}"},
+  {"id": "tue-lecture", "title": "CS 201 lecture", "start": "{{D@10:00|isodt}}", "end": "{{D@11:15|isodt}}"},
+  {"id": "tue-work", "title": "Work shift", "start": "{{D@15:00|isodt}}", "end": "{{D@19:00|isodt}}"},
+  {"id": "tue-club", "title": "Robotics club meeting", "start": "{{D@19:30|isodt}}", "end": "{{D@21:00|isodt}}"},
+  {"id": "wed-review", "title": "MATH 240 midterm review", "start": "{{D+1@09:00|isodt}}", "end": "{{D+1@12:00|isodt}}"},
+  {"id": "wed-library", "title": "Library job", "start": "{{D+1@12:30|isodt}}", "end": "{{D+1@16:00|isodt}}"},
+  {"id": "wed-midterm", "title": "MATH 240 midterm", "start": "{{D+1@18:00|isodt}}", "end": "{{D+1@20:00|isodt}}"},
+  {"id": "thu-lecture", "title": "CS 201 lecture", "start": "{{D+2@10:00|isodt}}", "end": "{{D+2@11:15|isodt}}"},
+  {"id": "thu-work", "title": "Work shift", "start": "{{D+2@12:00|isodt}}", "end": "{{D+2@17:00|isodt}}"},
+  {"id": "thu-hackathon", "title": "Hackathon kickoff", "start": "{{D+2@18:00|isodt}}", "end": "{{D+2@23:00|isodt}}"},
+  {"id": "fri-section", "title": "CS 201 section", "start": "{{D+3@13:00|isodt}}", "end": "{{D+3@14:00|isodt}}"},
+  {"id": "fri-flight", "title": "Flight home", "start": "{{D+3@18:00|isodt}}", "end": "{{D+3@21:30|isodt}}"}
+]

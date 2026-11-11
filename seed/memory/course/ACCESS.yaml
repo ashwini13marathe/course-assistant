@@ -1,0 +1,14 @@
+# Which course files students can see. Most specific rule wins;
+# an exact path beats a pattern. Change it from the files panel or
+# with set_student_access; don't edit by hand during the demo.
+default: read
+rules:
+  ACCESS.yaml: hidden
+  solutions/**: hidden
+  solutions/hw1/**: read
+  skills/hints/hw*/**: hidden
+  skills/publish-assignment/**: hidden
+  skills/update-assignment/**: hidden
+  skills/add-hints/**: hidden
+  skills/update-lecture/**: hidden
+  skills/release-solution/**: hidden

@@ -1,0 +1,41 @@
+# The eight seeded lectures, oldest first. Dates are set at reset so the last one
+# is today (see harness/seed.py: lecture_offsets).
+- number: 13
+  title: Recursion review
+  summary: Base cases, recursive cases, and tracing the call stack. Recursion on linked structures.
+  resources:
+    - "[Recursion (computer science)](https://en.wikipedia.org/wiki/Recursion_(computer_science))"
+- number: 14
+  title: "Trees: terminology and representation"
+  summary: Root, parent, child, leaf, depth, height. Node-and-reference representation.
+  resources:
+    - "[Tree (abstract data type)](https://en.wikipedia.org/wiki/Tree_(abstract_data_type))"
+- number: 15
+  title: Tree traversals
+  summary: Pre-order, in-order, post-order and level-order traversals; recursive and iterative versions.
+  resources:
+    - "[Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal)"
+- number: 16
+  title: "Binary search trees: search and insert"
+  summary: The BST property, search, insert, and why the shape depends on insertion order.
+  resources:
+    - "[Binary search tree](https://en.wikipedia.org/wiki/Binary_search_tree)"
+- number: 17
+  title: "Binary search trees: deletion"
+  summary: Deleting a leaf, a node with one child, and a node with two children (in-order successor).
+  resources:
+    - "[VisuAlgo: BST](https://visualgo.net/en/bst)"
+- number: 18
+  title: Balanced trees and AVL intuition
+  summary: Why unbalanced BSTs degrade to O(n), the balance factor, and the idea of rotations.
+  resources:
+    - "[AVL tree](https://en.wikipedia.org/wiki/AVL_tree)"
+    - "[VisuAlgo: BST and AVL](https://visualgo.net/en/bst)"
+- number: 19
+  title: Tree practice session
+  summary: Worked problems on traversals, BST deletion and computing heights; common mistakes from HW1 and HW2.
+  resources: []
+- number: 20
+  title: AVL rotations
+  summary: Left, right, left-right and right-left rotations, and rebalancing after an insert.
+  resources: []

@@ -4,6 +4,18 @@ A custom agent harness for the DevFest workshop **Build Your Own Claude Code: Ag
 
 ## Run it
 
+### In a GitHub Codespace (no local setup)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ashwini13marathe/course-assistant?quickstart=1)
+
+1. Click the badge. When asked, paste a `GOOGLE_API_KEY` (free at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)) or skip and paste one in the app's sidebar later.
+2. Wait for the build. The app starts by itself and opens in a new tab (or open the **Ports** panel and click port 8000).
+3. To drop demo files into the chat, download them first: right-click `demo_uploads/...` in the Explorer and choose **Download**.
+
+Stop the codespace when you're done (github.com/codespaces), since it uses your free monthly hours.
+
+### Locally
+
 ```bash
 uv sync                          # Python 3.11+
 cp .env.example .env             # optional: keys here pre-fill the sidebar

@@ -29,7 +29,7 @@ from langchain.agents.middleware import (
     dynamic_prompt,
     wrap_model_call,
     wrap_tool_call,
-    after_agent
+    after_agent,
 )
 from langchain_core.messages import ToolMessage
 from typing_extensions import NotRequired
@@ -169,5 +169,5 @@ def call_limit(limit: int = 15):
 
 def build_middleware() -> list:
     stack = [filter_tools_by_role, drop_old_thinking, snapshot_context, course_context,
-             permission_gate, approvals(), call_limit(), ding]
+             permission_gate, approvals(), call_limit()]
     return [m for m in stack if m is not None]

@@ -20,6 +20,7 @@ no side effects before calling the handler, because a paused call re-runs it on 
 """
 
 import logging
+import subprocess, sys
 
 from langchain.agents.middleware import (
     AgentState,
@@ -28,6 +29,7 @@ from langchain.agents.middleware import (
     dynamic_prompt,
     wrap_model_call,
     wrap_tool_call,
+    after_agent
 )
 from langchain_core.messages import ToolMessage
 from typing_extensions import NotRequired
@@ -43,6 +45,18 @@ THINKING_TYPES = {"thinking", "redacted_thinking"}
 
 def _tool_name(t) -> str | None:
     return getattr(t, "name", None) or (t.get("name") if isinstance(t, dict) else None)
+
+
+@after_agent
+def ding(state, runtime):
+    """Play a sound when the agent finishes. Not in the stack: add it to build_middleware()."""
+    if sys.platform == "darwin":
+        subprocess.Popen(["afplay", "/System/Library/Sounds/Pop.aiff"])
+    elif sys.platform == "win32":
+        import winsound
+        winsound.MessageBeep()
+    else:
+        print("\a", end="", flush=True)  # terminal bell
 
 
 @wrap_model_call
@@ -155,5 +169,5 @@ def call_limit(limit: int = 15):
 
 def build_middleware() -> list:
     stack = [filter_tools_by_role, drop_old_thinking, snapshot_context, course_context,
-             permission_gate, approvals(), call_limit()]
+             permission_gate, approvals(), call_limit(), ding]
     return [m for m in stack if m is not None]

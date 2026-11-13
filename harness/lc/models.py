@@ -16,14 +16,14 @@ class Provider:
 
 PROVIDERS = {
     "Claude": Provider("Claude", "anthropic", "ANTHROPIC_API_KEY", "CLAUDE_MODEL", "claude-opus-5-5"),
-    "Gemini": Provider("Gemini", "google_genai", "GOOGLE_API_KEY", "GEMINI_MODEL", ""),
+    "Gemini": Provider("Gemini", "google_genai", "GOOGLE_API_KEY", "GEMINI_MODEL", "gemini-3.5-flash-lite"),
     "OpenAI": Provider("OpenAI", "openai", "OPENAI_API_KEY", "OPENAI_MODEL", ""),
 }
 
 
 def default_model(label: str) -> str:
     p = PROVIDERS[label]
-    return os.environ.get(p.env_model, p.default_model)
+    return os.environ.get(p.env_model, "").strip() or p.default_model
 
 
 def default_key(label: str) -> str:

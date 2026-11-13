@@ -1,7 +1,7 @@
 ---
 name: assignment-review
 audience: student
-description: Use when a student asks to check, review or get feedback on their assignment work before submitting ("can you check my HW3?"). Reviews against the assignment's checklist with hints, never solutions. Not for getting unstuck without work (hints) or submitting (submit-assignment).
+description: Use when a student asks to check, review or get feedback on their assignment work before submitting ("can you check my HW3?"). Reviews against the assignment's checklist with hints, never solutions. Not for getting unstuck without work (hints) or submitting (submit-hw).
 ---
 # Review a student's assignment work
 

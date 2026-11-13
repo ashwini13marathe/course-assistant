@@ -183,7 +183,7 @@ def test_tools_and_skills_per_role(rt):
     assert {s.name for s in index(rt, Identity.professor(), m)} == {
         "publish-assignment", "update-assignment", "add-hints", "update-lecture", "release-solution"}
     assert {s.name for s in index(rt, Identity.student("alice"), m)} == {
-        "whats-due", "plan-my-week", "save-notes", "assignment-review", "hints", "submit-assignment"}
+        "whats-due", "plan-my-week", "save-notes", "assignment-review", "hints"}
 
 
 def test_every_skill_description_follows_the_pattern(rt):

@@ -13,6 +13,7 @@ The welcome screen shows each prompt as a button with today's weekday names fill
 | `professor/hw4/` | `Homework 4 - Hash Maps.md` (handout), `hashmap copy.py` (starter code), `hashmap_solution_FINAL.py` (solution) | Missing deadline, then publish HW4 |
 | `student/notes/` | `lecture notes today.txt` | Save notes |
 | `student/hw3/` | `bst.py`, Alice's HW3 with three real bugs | Review and submit |
+| `skills/submit-hw/` | `SKILL.md`, the submit skill to add live | Add a skill, then submit |
 
 The file names are messy on purpose; the assistant files them under clean names.
 
@@ -66,7 +67,7 @@ Pick **Student** with username `alice`. A new username like `bob` gets a fresh, 
 - Type: *Here are my notes from today's lecture, add them to my course notes*
 - Expect: saved to `notes/lectures/⟨today's date⟩.md`, in Alice's own words.
 
-**4. Review, get a hint, submit**
+**4. Review and get a hint**
 - Drop: `student/hw3/bst.py`
 - Type: *Can you check my HW3?*
 - Expect: it copies the file into `hw3/`, loads the HW3 checklist and reports *needs work*. The three bugs:
@@ -74,7 +75,18 @@ Pick **Student** with username `alice`. A new username like `bob` gets a fresh, 
   2. A two-children delete leaves the successor behind and doesn't shrink the size.
   3. `height()` of an empty tree is 0 instead of -1.
 - Type: *I'm stuck on deleting a node with two children*. Expect one hint level at a time (after professor step 4).
-- Type: *Submit my HW3*. Expect an approval card with the real diff against the starter code.
+
+**5. Add a skill, then submit**
+
+The course starts with no submit skill, so it's added live.
+- Before: *Submit my HW3* has no skill to follow, so the agent improvises.
+- Add it, from the repo root:
+  ```bash
+  cp -r demo_uploads/skills/submit-hw runtime/memory/course/skills/
+  ```
+  No restart: the skill index is rebuilt with each message. Reset demo removes it again.
+- Type: *Submit my HW3*
+- Expect: it loads `submit-hw`, checks the deadline and the HW3 checklist, and drafts `SOLUTION.md` (approach, complexity, edge cases, AI use) for Alice to confirm. Then one approval card shows `bst.py` and `SOLUTION.md` in the same diff. After approval it reports the commit id and saves a line to Alice's memory.
 
 ## The guardrails moment
 

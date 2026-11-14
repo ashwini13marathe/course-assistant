@@ -176,8 +176,8 @@ def add_event(title: str, start: str, end: str, *, runtime: ToolRuntime) -> str:
 
 ALL = [list_files, read_file, write_file, append_to_file, save_upload, remember, load_skill,
        list_assignments, publish_assignment, update_assignment, save_hints, set_student_access,
-       get_hint, commit_changes, submission_status, list_events, find_free_time, add_event]
-
+       get_hint, submission_status, list_events, find_free_time, add_event]
+        # commit_changes
 
 def build_tools():
     return list(ALL)

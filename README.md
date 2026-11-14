@@ -22,7 +22,7 @@ cp .env.example .env             # optional: keys here pre-fill the sidebar
 uv run python server.py          # opens http://127.0.0.1:8000
 ```
 
-`--port 9000` picks another port; `--no-browser` skips opening a tab.
+`--port 9000` picks another port; `--no-browser` skips opening a tab; `--reload` restarts the server when you edit code in `harness/` or `webui/` (changes under `web/` only need a page refresh; edits to `server.py` itself need a manual restart).
 
 The first run builds `runtime/` from `seed/`. Reset any time from the sidebar (**Reset demo**) or with:
 

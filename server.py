@@ -2,6 +2,7 @@
 
     uv run python server.py              # opens http://127.0.0.1:8000
     uv run python server.py --port 9000 --no-browser
+    uv run python server.py --reload     # restart on code changes
 """
 from __future__ import annotations
 
@@ -27,7 +28,8 @@ except ImportError:
 
 from webui.service import RequestError, Service, Settings  # noqa: E402
 
-WEB = Path(__file__).resolve().parent / "web"
+ROOT = Path(__file__).resolve().parent
+WEB = ROOT / "web"
 MAX_UPLOAD = 20 * 1024 * 1024
 log = logging.getLogger("course-assistant")
 
@@ -147,12 +149,21 @@ def main() -> None:
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8000)
     parser.add_argument("--no-browser", action="store_true")
+    parser.add_argument("--reload", action="store_true",
+                        help="restart the server when Python files change (development)")
     args = parser.parse_args()
     url = f"http://{args.host}:{args.port}"
     if not args.no_browser:
         threading.Timer(1.2, lambda: webbrowser.open(url)).start()
     print(f"Course assistant running at {url}")
-    uvicorn.run(create_app(), host=args.host, port=args.port, log_level="warning")
+    if args.reload:
+        # Reload needs an import string. Watch only the code packages: the app writes
+        # .py submissions into runtime/, which must not trigger restarts.
+        uvicorn.run("server:create_app", factory=True, host=args.host, port=args.port,
+                    log_level="warning", reload=True,
+                    reload_dirs=[str(ROOT / "harness"), str(ROOT / "webui")])
+    else:
+        uvicorn.run(create_app(), host=args.host, port=args.port, log_level="warning")
 
 
 if __name__ == "__main__":

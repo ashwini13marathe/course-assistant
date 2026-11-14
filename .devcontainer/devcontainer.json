@@ -18,7 +18,7 @@
     },
     "LANGFUSE_PUBLIC_KEY": {
       "description": "Optional: Langfuse public key, to see traces.",
-      "documentationUrl": "https://cloud.langfuse.com"
+      "documentationUrl": "https://us.cloud.langfuse.com"
     },
     "LANGFUSE_SECRET_KEY": {
       "description": "Optional: Langfuse secret key."

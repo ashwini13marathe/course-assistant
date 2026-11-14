@@ -107,7 +107,7 @@ class Settings:
             api_key=str(d.get("api_key") or "").strip() or default_key(provider),
             lf_public=str(d.get("lf_public") or "").strip() or os.environ.get("LANGFUSE_PUBLIC_KEY", ""),
             lf_secret=str(d.get("lf_secret") or "").strip() or os.environ.get("LANGFUSE_SECRET_KEY", ""),
-            lf_host=str(d.get("lf_host") or "").strip() or os.environ.get("LANGFUSE_HOST", HOSTS["EU cloud"]),
+            lf_host=str(d.get("lf_host") or "").strip() or os.environ.get("LANGFUSE_HOST", HOSTS["US cloud"]),
             enforce=bool(d.get("enforce", True)),
         )
 

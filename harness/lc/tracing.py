@@ -10,8 +10,8 @@ import logging
 log = logging.getLogger(__name__)
 
 HOSTS = {
-    "EU cloud": "https://cloud.langfuse.com",
     "US cloud": "https://us.cloud.langfuse.com",
+    "EU cloud": "https://cloud.langfuse.com",
 }
 
 
